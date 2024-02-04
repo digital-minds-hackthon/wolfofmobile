@@ -52,9 +52,9 @@ app.post("/login",passport.authenticate('local',{
   failureFlash: true
 }), (req,res) => {
   try{
-    res.status(200).send("Authenticated successfully");
+    res.status(200).json({"message": "Logged in successfully"});
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({"error": error});
   }
 })
 
@@ -68,7 +68,9 @@ app.delete("/logout", (req, res) => {
 });
 
 
-//
+app.get("test", require("./middleware/auth"), (req, res) => {
+    res.status(200).send("Authenticated successfully");
+});
 
 
 
