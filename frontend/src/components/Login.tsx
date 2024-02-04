@@ -30,6 +30,7 @@ const Login: FC<CustomizeProps> = ({}) => {
                 })
                 .catch((error) => {
                     alert("Login Failed");
+                    console.error("Error:", error);
                     return;
                 });
 
