@@ -44,7 +44,7 @@ const Navbar: FC<NavbarProps> = ({}) => {
           to="/register"
           className="bg-yellow-500   font-semibold text-black border-2 border-yellow-500  px-8 py-2 rounded-md"
         >
-          Sign In
+          Sign Up
         </Link>
       </div>
     </div>
