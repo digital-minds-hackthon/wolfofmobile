@@ -73,6 +73,9 @@ app.get("test", require("./middleware/auth"), (req, res) => {
 });
 
 
+// routes
+app.use('/products', require('./routes/product'));
+
 
 app.listen(PORT, () => {
   connectDB(process.env.MONGO_URI)

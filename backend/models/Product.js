@@ -2,39 +2,35 @@ const mongoose = require('mongoose');
 
 
 const productSchema = new mongoose.Schema({
-    name: {
+    case_color: {
         type: String,
-        required: [true,"Name is required"],
-        minLength: [3,"Name must be at least 3 characters long"],
-        maxLength: [20,"Name must be at most 20 characters long"],
+        required: true
     },
-    brand: {
+    phone_model: {
         type: String,
-        required: [true,"Brand is required"],
-        minLength: [3,"Brand must be at least 3 characters long"],
-        maxLength: [20,"Brand must be at most 20 characters long"],
+        required: true
     },
-    image_src: {
+    phone_color: {
         type: String,
-        required: [true,"Image is required"],
-        RegExp: /^([a-zA-Z0-9_\-\.]+)\.(jpg|jpeg|png|gif)$/
+        required: true
     },
-    
-    price: {
+    phone_case: {
+        type: String,
+        required: true
+    },
+    case_image: {
+        type: String,
+        required: true
+    },
+    user_id: {
+        type: Object,
+        required: true,
+        References: 'User'
+    },
+    NumberofOrders: {
         type: Number,
-        required: [true,"Price is required"],
-        min: [0,"Price must be a positive number"],
-    },
-    description: {
-        type: String,
-        required: [true,"Description is required"],
-        minLength: [5,"Description must be at least 5 characters long"],
-        maxLength: [100,"Description must be at most 100 characters long"],
-    },
-    category: {
-        type: String,
-        required: [true,"Category is required"],
-        minLength: [3,"Category must be at least 3 characters long"],
-        maxLength: [20,"Category must be at most 20 characters long"],
+        default: 1
     },
 });
+
+module.exports = mongoose.model('Product', productSchema);
